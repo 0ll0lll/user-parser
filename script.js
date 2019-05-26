@@ -29,7 +29,8 @@ $('input').keydown((e) => {
 function requestData() {
     let itemsNum = parseInt($('input').val()) || 1
 
-    $.getJSON('http://www.filltext.com/?rows=' + itemsNum + '&fname={firstName}&lname={lastName}&tel={phone|format}&address={streetAddress}&city={city}&state={usState|abbr}&zip={zip}&pretty=true', (data, b , c ) => {
+    const proxy = 'https://cors-anywhere.herokuapp.com/'
+    $.getJSON(`${proxy}http://www.filltext.com/?rows=${itemsNum}&fname={firstName}&lname={lastName}&tel={phone|format}&address={streetAddress}&city={city}&state={usState|abbr}&zip={zip}&pretty=true`, (data, b , c ) => {
 
         console.log(c)
         console.log('//////////////')
